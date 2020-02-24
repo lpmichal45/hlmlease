@@ -17,7 +17,17 @@ def register(email, password, re_password):
             400 for bad parameters
             999 for in development
     '''
+    response = 0
+    message  = ''
 
-    hashpw = cleanse.hashpw(password)
+    if(password != re_password):
+        message = 'Passwords do not match'
+        response = HTTP_BAD_REQUEST
+    
+    else:
+        # Actually proceed with request
+        hashpw = cleanse.hashpw(password)
+        message = 'Success'
+        response = HTTP_OK
 
-    return HTTP_IN_DEVELOPMENT
+    return response, message
