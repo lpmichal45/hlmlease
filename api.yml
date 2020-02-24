@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: hlm lease api
+  description: outline of the v1 hlm lease api
+  version: 1.0.0
+
+paths:
+  /api/v1/register:
+    post:
+      summary: registers a user with hlm leasing services
+      operationId: controller.register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                passwprd:
+                  type: string
+                re-password:
+                  type: string 
+      responses:
+        '200':
+          description: User was successfully registered and is pending to
+                       confirm their account
+        '400':
+          description: Registration data was invalid
