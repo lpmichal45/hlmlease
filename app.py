@@ -3,7 +3,7 @@
 import connexion
 
 def main():
-    APP = connexion.App('gotravel')
+    APP = connexion.App('hlmlease')
     APP.add_api('api.yml')
     APP.run(port=8080)
 
